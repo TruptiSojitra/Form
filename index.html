@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link href="css/index.css" rel="stylesheet">
+</head>
+<body class="back">
+   
+   
+    
+        <table class="left" style="width:50%">
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Dob</th>
+              <th>Gender</th>
+            </tr>
+            <tr>
+              <td id="name"></td>
+              <td id="email"></td>
+              <td id="dob"></td>
+              <td id="gender"></td>
+            </tr>
+        </table>
+
+        <form class="right" onsubmit="return fetchData()">
+            <label>Name</label>
+            <input id="fname" type="text" required><br><br>       
+            
+    
+            <label>Email</label>
+            <input id="femail" type="email" value="" required><br><br>
+    
+            <label>DOB</label>
+            <input id="fdob" type="date" required><br><br>
+    
+            <label>Gender:</label>
+            
+            <input type="radio" id="male" name="A" value="Male"  >
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="A" value="Female" >
+            <label for="female">Female</label>
+            <input type="radio" id="other" name="A" value="Other" >
+            <label for="other">Other</label><br><br>
+      
+            <input   value="Save" type="submit" >
+        </form>
+        
+
+ 
+
+
+    <script>
+               
+
+        function fetchData(){
+           
+            var uGender = '';
+            let uname = document.getElementById("fname").value;
+            var uEmail = document.getElementById("femail").value;
+            var uDob = document.getElementById("fdob").value;
+
+            document.getElementsByName('A').forEach(radio => {
+                if (radio.checked){
+                uGender= (radio.value)}
+            });
+
+            console.log(uGender);    
+
+            document.getElementById("name").innerHTML = uname;
+            document.getElementById("email").innerHTML = uEmail;
+            document.getElementById("dob").innerHTML = uDob;
+            document.getElementById("gender").innerHTML = uGender;
+
+            return false;
+        }
+        
+    </script>
+    
+</body>
+</html>
